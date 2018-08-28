@@ -1,4 +1,4 @@
-.gameStart {
+.gameStart, .gameEnd {
   border: 2px solid black;
   background-color: lavender;
   text-align: center;
@@ -18,7 +18,7 @@
   left: 0;
 }
 
-.gameStart > button {
+.gameStart > button, .gameEnd > button {
   border: 2px solid grey;
   background-color: rgb(82, 199, 76);
   color: white;
@@ -31,7 +31,7 @@
   font-weight: bold;
   letter-spacing: 2px;
 }
-.gameStart > button:hover {
+.gameStart > button:hover, .gameEnd > button:hover {
   background-color: rgb(53, 149, 48);
   cursor: crosshair;
 }

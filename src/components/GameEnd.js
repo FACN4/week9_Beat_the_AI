@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/gameEnd";
+import "../styles/gameStart";
+
 export default class GameEnd extends React.Component {
   state = {
     win: true
@@ -7,7 +8,7 @@ export default class GameEnd extends React.Component {
   render() {
     return (
       <div className="gameEnd">
-        <p>{this.state.win && "Gongrats!"}</p>
+        <p>{this.state.win && "Congrats!"}</p>
         <button>play again</button>
       </div>
     );

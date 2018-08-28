@@ -1,5 +1,11 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: yellow;
+  grid-template-rows: 60px 60px 60px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 500px;
+  margin: auto;
+  background-color: rgb(111, 120, 166);
+  grid-gap: 4px;
 }

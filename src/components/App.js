@@ -5,7 +5,7 @@ import GameBody from "./GameBody";
 
 export default class App extends React.Component {
   state = {
-    gameStatus: 2
+    gameStatus: 1
     // Can be 1 or 2 or 3
   };
   nextPhase = phase => {
