@@ -1,3 +1,42 @@
 .gameStart {
-  border: 3px solid black;
+  border: 2px solid black;
+  background-color: lavender;
+  text-align: center;
+  padding: 3% 0%;
+  border-radius: 50px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+
+  width: 90%;
+  max-width: 500px;
+  max-height: 200px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.gameStart > button {
+  border: 2px solid grey;
+  background-color: rgb(82, 199, 76);
+  color: white;
+  border-radius: 10px;
+  margin: 10px 0px;
+  padding: 20px;
+  padding-bottom: 23px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.gameStart > button:hover {
+  background-color: rgb(53, 149, 48);
+  cursor: crosshair;
+}
+
+/* ----- Desktop ---- */
+@media screen and (min-width: 700px) {
+
 }
