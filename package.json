@@ -5,8 +5,8 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "parcel ./public/index.html",
-    "build": "parcel build ./src/index.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "build":"parcel build ./public/index.html --public-url ./"
   },
   "repository": {
     "type": "git",
