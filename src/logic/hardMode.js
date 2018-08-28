@@ -1,40 +1,56 @@
 const minimax = (board, player) => {
   const huPlayer = "X";
   const aiPlayer = "O";
-  if (winning(board, huPlayer)) {
+  // Change all empty positions on board to the array index
+  const reBoard = board.map((item, index) => {
+    if (!item) {
+      return index;
+    }
+  });
+  // Filter out spots which are filled
+  let remMoves = reBoard.filter( item => item !== huPlayer && item !== aiPlayer)
+  // Check if a player has won or if the game is over
+  if (winning(reBoard, huPlayer)) {
     return {
       score: -10
     };
-  } else if (winning(board, aiPlayer)) {
+  } else if (winning(reBoard, aiPlayer)) {
     return {
       score: 10
     };
-  } else if (array.length === 0) {
+  } else if (remMoves.length === 0) {
     return {
       score: 0
     };
   }
-  let remainingMoves = board.filter( item => item === "").length
+  //Define moves to be collected
   var moves = [];
-  for (var i = 0; i < array.length; i++) {
-    var move = {};
-    move.index = reboard[array[i]];
-    reboard[array[i]] = player;
+  //Loop through all remaining spaces
+  for (let i = 0; i < remMoves.length; i++) {
+    let move = {};
+    // Store the move with an index property of the space used
+    move.index = remMoves[i];
+    // Update the board to include that move
+    reBoard[remMoves[i]] = player;
 
-    if (player == aiPlayer) {
-      var g = minimax(reboard, huPlayer);
+    if (player === aiPlayer) {
+      // Recursively run until somebody wins or draw
+      let g = minimax(reBoard, huPlayer);
+      // Store the score in move
       move.score = g.score;
     } else {
-      var g = minimax(reboard, aiPlayer);
+      let g = minimax(reBoard, aiPlayer);
       move.score = g.score;
     }
-    reboard[array[i]] = move.index;
+    // Undo the board update
+    reBoard[remMoves[i]] = move.index;
+    // Add move to the moves array 
     moves.push(move);
   }
 
   var bestMove;
   if (player === aiPlayer) {
-    var bestScore = -10000;
+    let bestScore = -10000;
     for (var i = 0; i < moves.length; i++) {
       if (moves[i].score > bestScore) {
         bestScore = moves[i].score;
@@ -42,8 +58,8 @@ const minimax = (board, player) => {
       }
     }
   } else {
-    var bestScore = 10000;
-    for (var i = 0; i < moves.length; i++) {
+    let bestScore = 10000;
+    for (let i = 0; i < moves.length; i++) {
       if (moves[i].score < bestScore) {
         bestScore = moves[i].score;
         bestMove = i;
@@ -51,4 +67,22 @@ const minimax = (board, player) => {
     }
   }
   return moves[bestMove];
+}
+
+
+const winning = (board, player) => {
+  if (
+    (board[0] == player && board[1] == player && board[2] == player) ||
+    (board[3] == player && board[4] == player && board[5] == player) ||
+    (board[6] == player && board[7] == player && board[8] == player) ||
+    (board[0] == player && board[3] == player && board[6] == player) ||
+    (board[1] == player && board[4] == player && board[7] == player) ||
+    (board[2] == player && board[5] == player && board[8] == player) ||
+    (board[0] == player && board[4] == player && board[8] == player) ||
+    (board[2] == player && board[4] == player && board[6] == player)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
