@@ -5,6 +5,11 @@
   text-align: center;
   max-width: 200px;
   margin: 20px auto;
-  padding: 5px;
+  padding: 15px 5px;
   font-family: 'Roboto Slab', serif;
+}
+.ai{
+  color: white;
+  font-weight: bolder;
+  background-image: url("https://user-images.githubusercontent.com/28222381/44797342-a3300c00-abb7-11e8-91c9-871eb8c9ad8a.png");
 }
