@@ -2,14 +2,14 @@ import React from "react";
 import "../styles/gameStart";
 
 export default class GameEnd extends React.Component {
-  state = {
-    win: true
-  };
   render() {
+    const {changeAppState} = this.props
     return (
       <div className="gameEnd">
-        <p>{this.state.win && "Congrats!"}</p>
-        <button>play again</button>
+        <p>{true && "Congrats for winning!"}</p>
+        <button onClick= {() => {changeAppState('gameStatus',1)}}>
+          play again
+        </button>
       </div>
     );
   }
