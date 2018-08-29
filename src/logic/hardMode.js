@@ -1,28 +1,28 @@
-// const minimax = (board, player) => {
-//   const huPlayer = "X";
-//   const aiPlayer = "O";
-//   // Change all empty positions on board to the array index
-//   const reBoard = board.map((item, index) => {
-//     if (!item) {
-//       return index;
-//     }
-//   });
-//   // Filter out spots which are filled
-//   let remMoves = reBoard.filter( item => item !== huPlayer && item !== aiPlayer)
-//   // Check if a player has won or if the game is over
-//   if (winning(reBoard, huPlayer)) {
-//     return {
-//       score: -10
-//     };
-//   } else if (winning(reBoard, aiPlayer)) {
-//     return {
-//       score: 10
-//     };
-//   } else if (remMoves.length === 0) {
-//     return {
-//       score: 0
-//     };
-//   }
+const minimax = (board, player) => {
+  const huPlayer = "X";
+  const aiPlayer = "O";
+  // Change all empty positions on board to the array index
+  const reBoard = board.map((item, index) => {
+    if (!item) {
+      return index;
+    }
+  });
+  // Filter out spots which are filled
+  let remMoves = reBoard.filter( item => item !== huPlayer && item !== aiPlayer)
+  // Check if a player has won or if the game is over
+  if (winning(reBoard, huPlayer)) {
+    return {
+      score: -10
+    };
+  } else if (winning(reBoard, aiPlayer)) {
+    return {
+      score: 10
+    };
+  } else if (remMoves.length === 0) {
+    return {
+      score: 0
+    };
+  }
 //   //Define moves to be collected
 //   var moves = [];
 //   //Loop through all remaining spaces

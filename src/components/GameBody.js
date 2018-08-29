@@ -11,7 +11,7 @@ export default class GameBody extends React.Component {
   };
   changeTurn = () => {
     let { boardStatus, humanTurn } = this.state;
-    const { humanSymbol } = this.props;
+    const { humanSymbol, gameMode } = this.props;
     console.log(humanTurn);
     this.setState(
       (prevState) => {
@@ -20,8 +20,9 @@ export default class GameBody extends React.Component {
       () => {
         if (!this.state.humanTurn) {
           console.log("should execute AITurn");
-          const aiChoice = aiTurn(boardStatus);
-          setTimeout( () => {this.changeBoard(aiChoice, 'O')},500);
+          const aiChoice = aiTurn(boardStatus, gameMode);
+          const aiSymbol = humanSymbol === 'X'? 'O':'X';
+          setTimeout( () => {this.changeBoard(aiChoice, aiSymbol)},500);
 
         }
       }
@@ -30,9 +31,11 @@ export default class GameBody extends React.Component {
   changeBoard = (index, symbol) => {
     this.setState(({ boardStatus }) => {
       boardStatus[index] = symbol;
-      this.props.aWin(boardStatus, symbol);
       return { boardStatus: boardStatus };
-    }, this.changeTurn);
+    }, () => {
+      const gameOver = this.props.aWin(this.state.boardStatus, symbol);
+      if (!gameOver) {this.changeTurn()}
+    });
   };
 
   render() {
