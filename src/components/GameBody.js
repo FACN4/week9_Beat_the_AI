@@ -12,7 +12,6 @@ export default class GameBody extends React.Component {
   changeTurn = () => {
     let { boardStatus, humanTurn } = this.state;
     const { humanSymbol, gameMode } = this.props;
-    console.log(humanTurn);
     this.setState(
       (prevState) => {
         return { humanTurn: !prevState.humanTurn };

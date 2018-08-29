@@ -1,3 +1,5 @@
+import {minimax} from './hardMode';
+
 const reBoard = (board) => {
   return board.map((item, index) => {
     if (!item) {
@@ -19,6 +21,8 @@ export const aiTurn = (board,gameMode) => {
     return filteredBoard[randomIndex];
   } else if (gameMode === "hard"){
     //hard mode function
+    const move = minimax(board,"O")
+    return move.index;
   }
 
 }
