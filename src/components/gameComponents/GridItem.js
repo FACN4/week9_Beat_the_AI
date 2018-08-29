@@ -12,17 +12,17 @@ export default class GridItem extends React.Component {
   //   });
   // };
   render() {
-    const { changeBoard, id, itemStatus } = this.props;
+    const { changeBoard, id, itemStatus, humanSymbol, humanTurn } = this.props;
     return (
       <div
         className="gridItem"
         onClick={() => {
-          if (itemStatus === "") {
-            changeBoard(id, "X");
+          if (itemStatus === "" && humanTurn) {
+            changeBoard(id, humanSymbol);
           }
         }}
       >
-        <span>{this.props.itemStatus}</span>
+        <span>{itemStatus}</span>
       </div>
     );
   }

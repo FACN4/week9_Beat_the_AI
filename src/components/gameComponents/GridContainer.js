@@ -4,8 +4,7 @@ import "../../styles/gridContainer";
 
 export default class Container extends React.Component {
   render() {
-    console.log("i am render?");
-    const { boardStatus, changeBoard } = this.props;
+    const { boardStatus, changeBoard, humanSymbol, humanTurn } = this.props;
     console.log(boardStatus);
     let gridItems = [];
     for (let i = 0; i < 9; i++) {
@@ -15,6 +14,8 @@ export default class Container extends React.Component {
           id={i}
           itemStatus={boardStatus[i]}
           changeBoard={changeBoard}
+          humanSymbol={humanSymbol}
+          humanTurn={humanTurn}
         />
       );
     }

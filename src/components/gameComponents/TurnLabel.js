@@ -2,12 +2,10 @@ import React from "react";
 import "../../styles/turnLabel";
 
 export default class TurnLabel extends React.Component {
-  state = {
-    playerTurn: true
-  };
   render() {
+    const {humanTurn} = this.props;
     return (
-      <h3 className="turnLabel">{this.state.playerTurn && "Your Turn"}</h3>
+      <h3 className="turnLabel">{humanTurn? "Your Turn": "AI Turn"}</h3>
     );
   }
 }
