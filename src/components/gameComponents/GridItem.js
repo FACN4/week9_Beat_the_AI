@@ -22,7 +22,7 @@ export default class GridItem extends React.Component {
           }
         }}
       >
-        {this.props.itemStatus}
+        <span>{this.props.itemStatus}</span>
       </div>
     );
   }
