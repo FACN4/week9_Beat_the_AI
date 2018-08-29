@@ -4,29 +4,34 @@ import "../styles/gameStart";
 export default class GameStart extends React.Component {
   state = {};
   render() {
-    const {changeAppState} = this.props;
+    const {changeAppState, humanSymbol, gameMode} = this.props;
+    console.log(humanSymbol);
+    const Xactive = humanSymbol==="X"? 'selectButton active': 'selectButton';
+    const Oactive = humanSymbol==="O"? 'selectButton active': 'selectButton';
+    const Eactive = gameMode==="easy"? 'selectButton active': 'selectButton';
+    const Hactive = gameMode==="hard"? 'selectButton active': 'selectButton';
     return (
       <div className="gameStart">
         <h1> Welcome to Beat the AI</h1>
         <div>
-          <p>Select your symbol</p>
-          <button onClick={() => {
+          <p className="selectTitle">Select your symbol</p>
+          <button className={Xactive} onClick={() => {
             changeAppState('humanSymbol','X');
           }}>X</button>
-          <button onClick={() => {
+          <button className={Oactive} onClick={() => {
             changeAppState('humanSymbol','O');
           }}>O</button>
         </div>
         <div>
-          <p>Choose your mode</p>
-          <button onClick={() => {
+          <p className="selectTitle">Choose your mode</p>
+          <button className={Eactive} onClick={() => {
             changeAppState('gameMode','easy');
           }}>Easy Mode</button>
-          <button onClick={() => {
+          <button className={Hactive} onClick={() => {
             changeAppState('gameMode','hard');
           }}>Hard Mode</button>
         </div>
-        <button
+        <button className="startButton"
           onClick={() => {
             changeAppState('gameStatus',2);
           }}

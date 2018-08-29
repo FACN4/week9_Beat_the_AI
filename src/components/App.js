@@ -40,7 +40,7 @@ export default class App extends React.Component {
     const { gameStatus, gameResult, humanSymbol, gameMode } = this.state;
     return (
       <React.Fragment>
-        {gameStatus === 1 && <GameStart changeAppState={this.changeAppState} />}
+        {gameStatus === 1 && <GameStart changeAppState={this.changeAppState} humanSymbol={humanSymbol} gameMode={gameMode}/>}
         {gameStatus === 2 && <GameBody aWin={this.aWin} humanSymbol={humanSymbol} gameMode={gameMode}/>}
         {gameStatus === 3 && <GameEnd changeAppState={this.changeAppState} gameResult={gameResult}/>}
       </React.Fragment>

@@ -1,9 +1,10 @@
 import {winning} from './winning'
 
-export const minimax = (board, player) => {
+export const minimax = (board, player,constHumSymbol) => {
   // Set symbols to be imported
-  const aiSymbol = "O";
-  const humanSymbol = "X";
+  const humanSymbol = constHumSymbol;
+  const aiSymbol = humanSymbol === "X"? "O":'X';
+
   // Change all empty positions on board to the array index
   const reBoard = board.map((item, index) => {
     if (!item) {
@@ -42,11 +43,11 @@ export const minimax = (board, player) => {
 
     if (player === aiSymbol) {
       // Recursively run until somebody wins or draw
-      let g = minimax(reBoard, humanSymbol);
+      let g = minimax(reBoard, humanSymbol, constHumSymbol);
       // Store the score in move
       move.score = g.score;
     } else {
-      let g = minimax(reBoard, aiSymbol);
+      let g = minimax(reBoard, aiSymbol, constHumSymbol);
       move.score = g.score;
     }
     // Undo the board update
