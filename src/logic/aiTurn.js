@@ -21,7 +21,6 @@ export const aiTurn = (board,gameMode, humanSymbol) => {
     const randomIndex = Math.floor(Math.random() * filteredBoard.length);
     return filteredBoard[randomIndex];
   } else if (gameMode === "hard"){
-    console.log('hard mode starting');
     //hard mode function
     const move = minimax(board,aiSymbol,humanSymbol)
     return move.index;
