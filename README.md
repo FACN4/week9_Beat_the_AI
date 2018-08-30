@@ -1,5 +1,5 @@
 # week9_Beat_the_AI
-
+![img](https://user-images.githubusercontent.com/28222381/44835531-2ba4c000-ac3d-11e8-8cbc-cf53df6dafca.png)
 # Game process and componenet hierarchy
 ## Step 1: phase 1 (home page)
 _ The palyer chooces the symbol and the game mode
