@@ -1,22 +1,28 @@
-import {winning} from './winning'
+import { winning } from "./winning";
 
-export const minimax = (board, player,constHumSymbol) => {
+export const minimax = (board, player, constHumSymbol) => {
   // Set symbols to be imported
   const humanSymbol = constHumSymbol;
-  const aiSymbol = humanSymbol === "X"? "O":'X';
+  const aiSymbol = humanSymbol === "X" ? "O" : "X";
 
   // Change all empty positions on board to the array index
   const reBoard = board.map((item, index) => {
     if (!item) {
       return index;
-    } else {
-      return item;
     }
+    return item;
   });
   // Filter out spots which are filled
-  let remMoves = reBoard.filter( item => item !== humanSymbol && item !== aiSymbol)
+  let remMoves = reBoard.filter(
+    item => item !== humanSymbol && item !== aiSymbol
+  );
   // Check if a player has won or if the game is over if so return the function with an object including a score
   // winning is a function that returns true is somebody has won and false if nobody has won yet
+  // console.log("result so far ", winning(reBoard, humanSymbol));
+  // let score = winning(reBoard, humanSymbol) === true ? -10 : 11;
+  // console.log({ score });
+  // return { score };
+
   if (winning(reBoard, humanSymbol)) {
     return {
       score: -10
@@ -55,7 +61,7 @@ export const minimax = (board, player,constHumSymbol) => {
     // Add move to the moves array
     moves.push(move);
   }
-//
+  //
   var bestMove;
   if (player === aiSymbol) {
     let bestScore = -10000;
