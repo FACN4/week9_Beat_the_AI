@@ -4,13 +4,7 @@ import "../../styles/gridItem";
 export default class GridItem extends React.Component {
   state = {
     clickable: true
-    //options are X or O or -
   };
-  // componentWillMount = () => {
-  //   this.setState(() => {
-  //     return { option: this.props.itemStatus };
-  //   });
-  // };
   render() {
     const { changeBoard, id, itemStatus, humanSymbol, humanTurn } = this.props;
     return (
