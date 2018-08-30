@@ -1,16 +1,11 @@
 import React from "react";
 import "../../styles/gridItem";
+import PropTypes from 'prop-types';
 
 export default class GridItem extends React.Component {
   state = {
     clickable: true
-    //options are X or O or -
   };
-  // componentWillMount = () => {
-  //   this.setState(() => {
-  //     return { option: this.props.itemStatus };
-  //   });
-  // };
   render() {
     const { changeBoard, id, itemStatus, humanSymbol, humanTurn } = this.props;
     return (
@@ -26,4 +21,12 @@ export default class GridItem extends React.Component {
       </div>
     );
   }
+}
+
+GridItem.propTypes = {
+  changeBoard: PropTypes.func,
+  id: PropTypes.number,
+  itemStatus: PropTypes.string,
+  humanSymbol: PropTypes.string,
+  humanTurn: PropTypes.bool
 }
