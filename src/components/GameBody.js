@@ -21,7 +21,7 @@ export default class GameBody extends React.Component {
           console.log("should execute AITurn");
           const aiChoice = aiTurn(boardStatus, gameMode,humanSymbol);
           const aiSymbol = humanSymbol === 'X'? 'O':'X';
-          setTimeout( () => {this.changeBoard(aiChoice, aiSymbol)},800);
+          setTimeout( () => {this.changeBoard(aiChoice, aiSymbol)},500);
 
         }
       }
