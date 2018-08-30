@@ -5,7 +5,6 @@ export default class GameStart extends React.Component {
   state = {};
   render() {
     const {changeAppState, humanSymbol, gameMode} = this.props;
-    console.log(humanSymbol);
     const Xactive = humanSymbol==="X"? 'selectButton active': 'selectButton';
     const Oactive = humanSymbol==="O"? 'selectButton active': 'selectButton';
     const Eactive = gameMode==="easy"? 'selectButton active': 'selectButton';
