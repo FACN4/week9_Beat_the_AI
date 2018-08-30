@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/gridItem";
+import PropTypes from 'prop-types';
 
 export default class GridItem extends React.Component {
   state = {
@@ -20,4 +21,12 @@ export default class GridItem extends React.Component {
       </div>
     );
   }
+}
+
+GridItem.propTypes = {
+  changeBoard: PropTypes.func,
+  id: PropTypes.number,
+  itemStatus: PropTypes.string,
+  humanSymbol: PropTypes.string,
+  humanTurn: PropTypes.bool
 }
